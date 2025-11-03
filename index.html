@@ -526,7 +526,13 @@
   </head>
   <body>
     <!-- 替换你<body>标签里的所有内容 (如果和下面一致，则无需改动) -->
-
+    <audio id="bgm" loop>
+      <source
+        src="https://s3plus.meituan.net/opapisdk/op_ticket_1_5677168484_1762191814337_qdqqd_se32nr.mp3"
+        type="audio/mpeg"
+      />
+      您的浏览器不支持音频元素。
+    </audio>
     <div class="sparkle-container">
       <div class="star"></div>
       <div class="star"></div>
@@ -647,7 +653,10 @@
         startBtn.addEventListener('click', () => {
           agreementModal.style.display = 'flex';
         });
+
         agreeBtn.addEventListener('click', () => {
+          const backgroundMusic = document.getElementById('bgm');
+          backgroundMusic.play().catch(error => console.log('音乐播放失败:', error));
           agreementModal.style.display = 'none';
           deviceCodeInput.disabled = false;
           generateBtn.disabled = false;
